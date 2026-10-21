@@ -24,3 +24,14 @@ button:hover { background: var(--principal-hover); }
 .resultado { margin-top: 32px; padding: 22px; border: 1px solid var(--borda); border-radius: 14px; background: #faf8ff; min-height: 120px; }
 .resultado h2 { font-size: 18px; margin: 0 0 12px; }
 .resultado p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--secundario); line-height: 1.6; }
+input { display: block; width: 100%; padding: 14px; border: 1px solid var(--borda); border-radius: 12px; font: inherit; margin-bottom: 20px; }
+input:focus { outline: 2px solid var(--principal); outline-offset: 2px; }
+.acoes { display: flex; gap: 12px; flex-wrap: wrap; }
+.secundario { background: #eee8f9; color: var(--principal); }
+.secundario:hover { background: #e1d6f4; }
+button:disabled { opacity: .65; cursor: wait; }
+.ajuda { color: var(--secundario); font-size: 14px; }
+.erro { color: #a11b32; line-height: 1.5; }
+.sessao { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; margin-bottom: 24px; border-bottom: 1px solid var(--borda); }
+.sessao span { overflow-wrap: anywhere; min-width: 0; }
+.sessao button { margin-top: 0; }
