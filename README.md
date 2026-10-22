@@ -33,4 +33,14 @@ As sessões usam cookies do Supabase SSR, renovados pelo middleware. A página p
 - Textos: `app/page.js`
 - Cores e estilos: `app/globals.css`
 
-O botao Analisar apenas repete o texto digitado. Nao ha integracao com IA ou banco de dados nesta etapa.
+## Treino de entrevista
+
+O arquivo `desafio.js` define título, subtítulo, campos, botão, aviso, modelo e prompt. O formulário envia os campos para `POST /api/ia`, disponível apenas com uma sessão válida. A rota retorna texto simples e mantém a chave da OpenRouter apenas no servidor.
+
+O projeto começa com `modoTeste: true`: a resposta é um exemplo identificado como simulação e nenhuma chamada à IA é feita. Ainda não há gravação do histórico no Supabase; ela será implementada na Etapa C da apostila.
+
+Para ativar a IA real, configure `OPENROUTER_API_KEY` nas variáveis de ambiente da Vercel (sem prefixo `NEXT_PUBLIC_`), altere `modoTeste` para `false` e publique novamente. O modelo é `openrouter/free` e o limite por resposta é 900 tokens. Se a chave for adicionada depois da publicação, faça Redeploy. Nunca coloque a chave no código ou no GitHub.
+
+Execute `npm test` para verificar montagem do prompt, modo de teste, payload da OpenRouter e erros do provedor sem gastar cota. Execute `npm run build` para validar a aplicação.
+
+Para conferir no navegador, entre na sua conta, preencha os campos e clique em "Avaliar minhas respostas". Durante o pedido, o botão deve mostrar "Analisando..." e ficar desabilitado. O resultado deve preservar as quebras de linha. São permitidas respostas em branco para que a avaliação siga o prompt, mas é necessário preencher pelo menos um campo; cada campo aceita até 6.000 caracteres.

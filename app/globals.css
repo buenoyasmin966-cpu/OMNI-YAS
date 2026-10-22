@@ -35,3 +35,4 @@ button:disabled { opacity: .65; cursor: wait; }
 .sessao { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-bottom: 20px; margin-bottom: 24px; border-bottom: 1px solid var(--borda); }
 .sessao span { overflow-wrap: anywhere; min-width: 0; }
 .sessao button { margin-top: 0; }
+.campo-desafio { margin-top: 22px; }
