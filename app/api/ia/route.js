@@ -1,14 +1,15 @@
 import { desafio } from '../../../desafio';
 import { createClient } from '../../../lib/supabase/server';
 import { ErroIA, gerarResposta } from '../../../lib/ia';
+import { salvarResposta } from '../../../lib/historico';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-function texto(body, status = 200) {
+function texto(body, status = 200, headers = {}) {
   return new Response(body, {
     status,
-    headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' },
+    headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', ...headers },
   });
 }
 
@@ -36,7 +37,14 @@ export async function POST(request) {
       valores[id] = value;
     }
     if (!Object.values(valores).some(value => value.trim())) return texto('Preencha pelo menos um campo para começar.', 400);
-    return texto(await gerarResposta(desafio, valores, process.env.OPENROUTER_API_KEY));
+    const resposta = await gerarResposta(desafio, valores, process.env.OPENROUTER_API_KEY);
+    try {
+      await salvarResposta(supabase, desafio, valores, resposta);
+    } catch {
+      // Preserve the generated answer rather than making the person spend another request.
+      return texto(resposta, 200, { 'X-Historico-Salvo': 'false' });
+    }
+    return texto(resposta, 200, { 'X-Historico-Salvo': 'true' });
   } catch (error) {
     if (error instanceof ErroIA) return texto(error.message, error.status);
     return texto('Não foi possível concluir a análise. Tente novamente em instantes.', 500);

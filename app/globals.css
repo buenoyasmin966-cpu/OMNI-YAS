@@ -36,3 +36,12 @@ button:disabled { opacity: .65; cursor: wait; }
 .sessao span { overflow-wrap: anywhere; min-width: 0; }
 .sessao button { margin-top: 0; }
 .campo-desafio { margin-top: 22px; }
+.sessao-acoes { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+a { color: var(--principal); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--principal); outline-offset: 4px; }
+.historico-lista { list-style: none; margin: 24px 0 0; padding: 0; }
+.historico-item { margin-top: 24px; padding: 22px; border: 1px solid var(--borda); border-radius: 14px; background: #faf8ff; }
+.historico-item h2 { font-size: 20px; margin-top: 0; }
+.historico-item h3 { font-size: 17px; }
+.historico-item p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+.historico-vazio { margin-top: 28px; line-height: 1.6; color: var(--secundario); }

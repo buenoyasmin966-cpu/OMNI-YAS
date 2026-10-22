@@ -29,6 +29,9 @@ export default function Analisador() {
         ? texto : 'Não foi possível concluir a análise. Tente novamente em instantes.');
       if (!texto.trim()) throw new Error('A IA não retornou uma resposta. Tente novamente.');
       setResposta(texto);
+      if (response.headers.get('X-Historico-Salvo') === 'false') {
+        setErro('Sua resposta foi gerada, mas não foi salva no histórico. Copie o resultado para guardá-lo. Verifique a tabela respostas e as regras de segurança do Supabase.');
+      }
     } catch (error) {
       setErro(error.name === 'TimeoutError' ? 'A análise demorou demais. Tente novamente em instantes.'
         : error instanceof TypeError ? 'Não foi possível conectar. Verifique sua conexão e tente novamente.'
