@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#7C3AED">
+<meta name="theme-color" content="#7C3AED"><meta name="description" content="OMNI-YAS: dicas e simulações para jovens se prepararem para entrevistas de emprego.">
 <title>OMNI-YAS | Prepare-se, destaque-se, conquiste!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -26,6 +26,15 @@ h1{font-size:clamp(2.6rem,5vw,4.5rem);line-height:1.08;margin:23px 0}h2{font-siz
 .cta{background:#fff3b9;text-align:center;padding:75px 20px}.cta p{margin:0 auto 24px;max-width:500px}.footer{background:var(--deep);color:white;text-align:center;padding:30px 15px}.footer p{margin:6px 0;color:#e8dafa}
 @media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.hero-grid{grid-template-columns:1fr}.hero-art{min-height:270px}.tip-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.menu-toggle{display:block}.links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--purple);padding:20px 4%;flex-direction:column;align-items:stretch}.links.open{display:flex}.links a{text-align:center}.hero{padding:55px 0}.cards{grid-template-columns:1fr}.section{padding:58px 0}.sim-box{padding:20px}.art-circle{width:180px;height:180px;font-size:4.5rem}.bubble{font-size:.8rem}}
+
+/* Refinamentos visuais da página inicial OMNI-YAS */
+.hero-art{background:radial-gradient(circle at 75% 25%,#ffffff30,transparent 45%),#ffffff16}
+.card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 32px #4c1d951b;border-color:#c7a8ff}
+.tip{transition:transform .2s ease}.tip:hover{transform:translateY(-3px)}
+.section-heading h2{color:#4C1D95}
+.sim-box textarea:focus{border-color:#7C3AED;outline:3px solid #7c3aed22}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
